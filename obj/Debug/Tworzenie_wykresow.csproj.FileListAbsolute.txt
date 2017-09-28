@@ -7,3 +7,12 @@ D:\Pobrane z netu\programowanie\Podstawy\Tworzenie_wykresow\Tworzenie_wykresow\o
 D:\Pobrane z netu\programowanie\Podstawy\Tworzenie_wykresow\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.exe
 D:\Pobrane z netu\programowanie\Podstawy\Tworzenie_wykresow\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.pdb
 D:\Pobrane z netu\programowanie\Podstawy\Tworzenie_wykresow\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.MainWindow.resources
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\bin\Debug\Tworzenie_wykresow.exe.config
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.exe
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.pdb
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\bin\Debug\Tworzenie_wykresow.exe
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\bin\Debug\Tworzenie_wykresow.pdb
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.csprojResolveAssemblyReference.cache
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.MainWindow.resources
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.Properties.Resources.resources
+C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.csproj.GenerateResource.Cache

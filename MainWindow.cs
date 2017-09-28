@@ -13,11 +13,14 @@ namespace Tworzenie_wykresow
 {
     public partial class MainWindow : Form
     {
+        
         public MainWindow()
         {
             InitializeComponent();
             UpdateViewAfterInitialization();
             SetMotionTypeInComboBox();
+            label3.Text = "V" + (char)0x0052;
+            label4.Text = "x" + (char)0x0032;
         }
 
         private void UpdateViewAfterInitialization()
@@ -97,6 +100,13 @@ namespace Tworzenie_wykresow
             btn_clear.Enabled = false;
             btn_generate.Enabled = false;
             lBoxEquations.Enabled = false;
+        }
+
+        private void SetChart()
+        {
+
+
+
         }
     }
 }
