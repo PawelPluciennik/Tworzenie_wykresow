@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,11 +39,11 @@
             this.tBox_V_0 = new System.Windows.Forms.TextBox();
             this.tBoxX_0 = new System.Windows.Forms.TextBox();
             this.cBoxMotionType = new System.Windows.Forms.ComboBox();
-            this.btn_generate = new System.Windows.Forms.Button();
-            this.chartGra = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btn_clear = new System.Windows.Forms.Button();
+            this.btnAddMotion = new System.Windows.Forms.Button();
+            this.chartMotions = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnClearMotion = new System.Windows.Forms.Button();
             this.lBoxEquations = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.chartGra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMotions)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,41 +121,43 @@
             this.cBoxMotionType.TabIndex = 7;
             this.cBoxMotionType.SelectedIndexChanged += new System.EventHandler(this.cBoxMotionType_SelectedIndexChanged);
             // 
-            // btn_generate
+            // btnAddMotion
             // 
-            this.btn_generate.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_generate.Location = new System.Drawing.Point(37, 249);
-            this.btn_generate.Name = "btn_generate";
-            this.btn_generate.Size = new System.Drawing.Size(128, 42);
-            this.btn_generate.TabIndex = 8;
-            this.btn_generate.Text = "Dodaj";
-            this.btn_generate.UseVisualStyleBackColor = true;
+            this.btnAddMotion.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddMotion.Location = new System.Drawing.Point(37, 249);
+            this.btnAddMotion.Name = "btnAddMotion";
+            this.btnAddMotion.Size = new System.Drawing.Size(128, 42);
+            this.btnAddMotion.TabIndex = 8;
+            this.btnAddMotion.Text = "Dodaj";
+            this.btnAddMotion.UseVisualStyleBackColor = true;
+            this.btnAddMotion.Click += new System.EventHandler(this.btnAddMotion_Click);
             // 
-            // chartGra
+            // chartMotions
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartGra.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartGra.Legends.Add(legend1);
-            this.chartGra.Location = new System.Drawing.Point(222, 12);
-            this.chartGra.Name = "chartGra";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartGra.Series.Add(series1);
-            this.chartGra.Size = new System.Drawing.Size(650, 537);
-            this.chartGra.TabIndex = 9;
-            this.chartGra.Text = "chart1";
+            chartArea2.Name = "ChartArea1";
+            this.chartMotions.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartMotions.Legends.Add(legend2);
+            this.chartMotions.Location = new System.Drawing.Point(222, 54);
+            this.chartMotions.Name = "chartMotions";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartMotions.Series.Add(series2);
+            this.chartMotions.Size = new System.Drawing.Size(650, 495);
+            this.chartMotions.TabIndex = 9;
+            this.chartMotions.Text = "chart1";
             // 
-            // btn_clear
+            // btnClearMotion
             // 
-            this.btn_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_clear.Location = new System.Drawing.Point(37, 407);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(128, 29);
-            this.btn_clear.TabIndex = 10;
-            this.btn_clear.Text = "Usuń";
-            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btnClearMotion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnClearMotion.Location = new System.Drawing.Point(37, 407);
+            this.btnClearMotion.Name = "btnClearMotion";
+            this.btnClearMotion.Size = new System.Drawing.Size(128, 29);
+            this.btnClearMotion.TabIndex = 10;
+            this.btnClearMotion.Text = "Usuń";
+            this.btnClearMotion.UseVisualStyleBackColor = true;
+            this.btnClearMotion.Click += new System.EventHandler(this.btnClearMotion_Click);
             // 
             // lBoxEquations
             // 
@@ -171,9 +173,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.lBoxEquations);
-            this.Controls.Add(this.btn_clear);
-            this.Controls.Add(this.chartGra);
-            this.Controls.Add(this.btn_generate);
+            this.Controls.Add(this.btnClearMotion);
+            this.Controls.Add(this.chartMotions);
+            this.Controls.Add(this.btnAddMotion);
             this.Controls.Add(this.cBoxMotionType);
             this.Controls.Add(this.tBoxX_0);
             this.Controls.Add(this.tBox_V_0);
@@ -184,7 +186,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MainWindow";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.chartGra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMotions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,9 +202,9 @@
         private System.Windows.Forms.TextBox tBox_V_0;
         private System.Windows.Forms.TextBox tBoxX_0;
         private System.Windows.Forms.ComboBox cBoxMotionType;
-        private System.Windows.Forms.Button btn_generate;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartGra;
-        private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.Button btnAddMotion;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartMotions;
+        private System.Windows.Forms.Button btnClearMotion;
         private System.Windows.Forms.ListBox lBoxEquations;
     }
 }

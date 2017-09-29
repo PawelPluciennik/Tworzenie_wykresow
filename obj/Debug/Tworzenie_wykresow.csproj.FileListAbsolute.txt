@@ -16,3 +16,12 @@ C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow
 C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.MainWindow.resources
 C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.Properties.Resources.resources
 C:\Users\Paweł\Documents\GitHub\Tworzenie_wykresow\obj\Debug\Tworzenie_wykresow.csproj.GenerateResource.Cache
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\bin\Debug\Tworzenie_wykresow.exe.config
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\obj\Debug\Tworzenie_wykresow.exe
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\obj\Debug\Tworzenie_wykresow.pdb
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\bin\Debug\Tworzenie_wykresow.exe
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\bin\Debug\Tworzenie_wykresow.pdb
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\obj\Debug\Tworzenie_wykresow.csprojResolveAssemblyReference.cache
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\obj\Debug\Tworzenie_wykresow.MainWindow.resources
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\obj\Debug\Tworzenie_wykresow.Properties.Resources.resources
+C:\Users\Przemek\Downloads\Tworzenie_wykresow-master (2)\Tworzenie_wykresow-master\obj\Debug\Tworzenie_wykresow.csproj.GenerateResource.Cache

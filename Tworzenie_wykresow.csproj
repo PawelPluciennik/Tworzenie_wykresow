@@ -54,6 +54,8 @@
     <Compile Include="Model\MotionType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UniformLinearMotion.cs" />
+    <Compile Include="UniformlyAcceleratedLinearMotion.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

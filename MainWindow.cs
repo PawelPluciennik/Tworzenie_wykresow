@@ -13,14 +13,21 @@ namespace Tworzenie_wykresow
 {
     public partial class MainWindow : Form
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
             UpdateViewAfterInitialization();
             SetMotionTypeInComboBox();
-            label3.Text = "V" + (char)0x0052;
-            label4.Text = "x" + (char)0x0032;
+
+            chartMotions.Series.Clear();
+            chartMotions.ChartAreas[0].AxisX.ScaleView.Zoom(0, 10);
+            chartMotions.ChartAreas[0].AxisY.ScaleView.Zoom(0, 10);
+            chartMotions.ChartAreas[0].CursorX.IsUserEnabled = true;
+            chartMotions.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+            chartMotions.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            //label3.Text = "V" + (char)0x0052;
+            //label4.Text = "x" + (char)0x0032;
         }
 
         private void UpdateViewAfterInitialization()
@@ -28,16 +35,16 @@ namespace Tworzenie_wykresow
             tBox_a.Enabled = false;
             tBox_V_0.Enabled = false;
             tBoxX_0.Enabled = false;
-            btn_clear.Enabled = false;
-            btn_generate.Enabled = false;
+            btnClearMotion.Enabled = false;
+            btnAddMotion.Enabled = false;
             lBoxEquations.Enabled = false;
         }
 
         private void SetMotionTypeInComboBox()
         {
             cBoxMotionType.Items.Insert(0, "- wybierz -");
-            cBoxMotionType.Items.Insert(1,"Jednostajny");
-            cBoxMotionType.Items.Insert(2,"Jednostajnie przyspieszony");
+            cBoxMotionType.Items.Insert(1, "Jednostajny");
+            cBoxMotionType.Items.Insert(2, "Jednostajnie przyspieszony");
             cBoxMotionType.SelectedIndex = 0;
         }
 
@@ -77,8 +84,7 @@ namespace Tworzenie_wykresow
             tBox_a.Enabled = true;
             tBox_V_0.Enabled = true;
             tBoxX_0.Enabled = true;
-            btn_clear.Enabled = true;
-            btn_generate.Enabled = true;
+            btnAddMotion.Enabled = true;
             lBoxEquations.Enabled = false;
         }
 
@@ -87,8 +93,7 @@ namespace Tworzenie_wykresow
             tBox_a.Enabled = false;
             tBox_V_0.Enabled = true;
             tBoxX_0.Enabled = true;
-            btn_clear.Enabled = true;
-            btn_generate.Enabled = true;
+            btnAddMotion.Enabled = true;
             lBoxEquations.Enabled = false;
         }
 
@@ -97,16 +102,93 @@ namespace Tworzenie_wykresow
             tBox_a.Enabled = false;
             tBox_V_0.Enabled = false;
             tBoxX_0.Enabled = false;
-            btn_clear.Enabled = false;
-            btn_generate.Enabled = false;
+            btnClearMotion.Enabled = false;
+            btnAddMotion.Enabled = false;
             lBoxEquations.Enabled = false;
         }
 
         private void SetChart()
         {
 
+        }
+
+        private void btnAddMotion_Click(object sender, EventArgs e)
+        {
+            if (GetSelectedMotionType() == MotionType.UniformLinearMotion)
+            {
+                UniformLinearMotion motion = new UniformLinearMotion(Convert.ToDouble(tBoxX_0.Text), Convert.ToDouble(tBox_V_0.Text));
+
+                EquationListBox.Items.Add((EquationListBox.Items.Count+1).ToString()+". "+ motion.ToString());
+
+                DrawMotion(motion);
+
+            }
+            else if (GetSelectedMotionType() == MotionType.UniformAcceleratedLinearMotion)
+            {
+                UniformlyAcceleratedLinearMotion motion = new UniformlyAcceleratedLinearMotion(Convert.ToDouble(tBoxX_0.Text), Convert.ToDouble(tBox_V_0.Text), Convert.ToDouble(tBox_a.Text));
+                EquationListBox.Items.Add((EquationListBox.Items.Count + 1).ToString() + ". " + motion.ToString());
+                DrawMotion(motion);
+            }
+
+            ListBoxRefresh();
+        }
 
 
+        private void DrawMotion(UniformLinearMotion motion)
+        {
+            string index = EquationListBox.Items.Count.ToString();
+            chartMotions.Series.Add(index);
+            chartMotions.Series[index].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            for (int i = 0; i < 100; i++)
+			{
+                chartMotions.Series[index].Points.AddXY(i, motion.GetPosition(i));
+
+			}
+        }
+
+        private void ListBoxRefresh()
+        {
+            if (lBoxEquations.Items.Count > 0)
+            {
+                lBoxEquations.Enabled = true;
+                btnClearMotion.Enabled = true;
+            }
+            else
+            {
+                lBoxEquations.Enabled = false;
+                btnClearMotion.Enabled = false;
+            }
+        }
+
+        public ListBox EquationListBox
+        {
+            get
+            {
+                return lBoxEquations;
+
+            }
+            set
+            {
+                lBoxEquations = value;
+            }
+        }
+
+        private void btnClearMotion_Click(object sender, EventArgs e)
+        {
+            int index = EquationListBox.SelectedIndex;
+            if (index >= 0)
+            {
+                EquationListBox.Items.RemoveAt(index);
+                DeleteMotionFromChart(index);
+                ListBoxRefresh();
+
+            }
+
+        }
+
+        private void DeleteMotionFromChart(int index)
+        {
+            chartMotions.Series.RemoveAt(index);
         }
     }
 }
