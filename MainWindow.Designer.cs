@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -157,16 +157,16 @@
             // 
             // chartMotions
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartMotions.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chartMotions.Legends.Add(legend6);
+            chartArea7.Name = "ChartArea1";
+            this.chartMotions.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chartMotions.Legends.Add(legend7);
             this.chartMotions.Location = new System.Drawing.Point(222, 54);
             this.chartMotions.Name = "chartMotions";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartMotions.Series.Add(series6);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chartMotions.Series.Add(series7);
             this.chartMotions.Size = new System.Drawing.Size(692, 495);
             this.chartMotions.TabIndex = 9;
             this.chartMotions.Text = "chart1";
@@ -309,6 +309,7 @@
             this.btn_SetPosition.TabIndex = 18;
             this.btn_SetPosition.Text = "Zatwirdź";
             this.btn_SetPosition.UseVisualStyleBackColor = true;
+            this.btn_SetPosition.Click += new System.EventHandler(this.btn_SetPosition_Click);
             // 
             // label13
             // 

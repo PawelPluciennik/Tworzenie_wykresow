@@ -197,7 +197,7 @@ namespace Tworzenie_wykresow
             string index = EquationListBox.Items.Count.ToString();
             chartMotions.Series.Add(index);
             chartMotions.Series[index].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            for (int i = 0; i < 100; i++)
+            for (int i = 1; i < 100; i++)
             {
                 chartMotions.Series[index].Points.AddXY(i, motion.GetPosition(i));
 
@@ -256,6 +256,49 @@ namespace Tworzenie_wykresow
 
         private void label17_Click(object sender, EventArgs e)
         {
+
+        }
+
+
+
+
+        private void btn_SetPosition_Click(object sender, EventArgs e)
+        {
+            double initial_time, initial_position, final_time, final_position;
+
+
+
+            if (!Double.TryParse(tBox_t_P.Text, out initial_time))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 't_P ='");
+                return;
+            }
+
+            if (!Double.TryParse(tBox_t_K.Text, out final_time))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 't_K ='");
+                return;
+            }
+
+            if (!Double.TryParse(tBox_x_K.Text, out final_position))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 'x_K ='");
+                return;
+            }
+
+            if (!Double.TryParse(tBox_x_P.Text, out initial_position))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 'x_P ='");
+                return;
+            }
+
+
+
+
+
+            chartMotions.ChartAreas[0].AxisY.ScaleView.Zoom(initial_position, final_position);
+            chartMotions.ChartAreas[0].AxisX.ScaleView.Zoom(initial_time, (final_time-1));
+
 
         }
     }
