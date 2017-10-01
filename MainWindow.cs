@@ -28,6 +28,14 @@ namespace Tworzenie_wykresow
             chartMotions.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             //label3.Text = "V" + (char)0x0052;
             //label4.Text = "x" + (char)0x0032;
+
+            tBox_t_K.Text = "0";
+            tBox_t_P.Text = "0";
+            tBox_x_K.Text = "0";
+            tBox_x_P.Text = "0";
+            tBox_a.Text = "0";
+            tBox_V_0.Text = "0";
+            tBoxX_0.Text = "0";
         }
 
         private void UpdateViewAfterInitialization()
@@ -38,6 +46,12 @@ namespace Tworzenie_wykresow
             btnClearMotion.Enabled = false;
             btnAddMotion.Enabled = false;
             lBoxEquations.Enabled = false;
+
+            tBox_t_K.Enabled = false;
+            tBox_t_P.Enabled = false;
+            tBox_x_K.Enabled = false;
+            tBox_x_P.Enabled = false;
+            btn_SetPosition.Enabled = false;
         }
 
         private void SetMotionTypeInComboBox()
@@ -86,6 +100,12 @@ namespace Tworzenie_wykresow
             tBoxX_0.Enabled = true;
             btnAddMotion.Enabled = true;
             lBoxEquations.Enabled = false;
+
+            tBox_t_K.Enabled = true;
+            tBox_t_P.Enabled = true;
+            tBox_x_K.Enabled = true;
+            tBox_x_P.Enabled = true;
+            btn_SetPosition.Enabled = true;
         }
 
         private void UpdateViewForLinearMotionSelected()
@@ -95,6 +115,12 @@ namespace Tworzenie_wykresow
             tBoxX_0.Enabled = true;
             btnAddMotion.Enabled = true;
             lBoxEquations.Enabled = false;
+
+            tBox_t_K.Enabled = true;
+            tBox_t_P.Enabled = true;
+            tBox_x_K.Enabled = true;
+            tBox_x_P.Enabled = true;
+            btn_SetPosition.Enabled = true;
         }
 
         private void UpdateViewForNoMotionSelected()
@@ -105,6 +131,12 @@ namespace Tworzenie_wykresow
             btnClearMotion.Enabled = false;
             btnAddMotion.Enabled = false;
             lBoxEquations.Enabled = false;
+
+            tBox_t_K.Enabled = false;
+            tBox_t_P.Enabled = false;
+            tBox_x_K.Enabled = false;
+            tBox_x_P.Enabled = false;
+            btn_SetPosition.Enabled = false;
         }
 
         private void SetChart()
@@ -114,11 +146,37 @@ namespace Tworzenie_wykresow
 
         private void btnAddMotion_Click(object sender, EventArgs e)
         {
+
+
+
+            double position, aceeleration, velocity, x_P, x_K, t_P, t_K;
+
+
+            if (!Double.TryParse(tBox_a.Text, out aceeleration))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 'a ='");
+                return;
+            }
+            if (!Double.TryParse(tBox_V_0.Text, out velocity))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 'V_0 ='");
+                return;
+            }
+            if (!Double.TryParse(tBoxX_0.Text, out position))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 'x_0 ='");
+                return;
+            }
+
+
+
+
+
             if (GetSelectedMotionType() == MotionType.UniformLinearMotion)
             {
                 UniformLinearMotion motion = new UniformLinearMotion(Convert.ToDouble(tBoxX_0.Text), Convert.ToDouble(tBox_V_0.Text));
 
-                EquationListBox.Items.Add((EquationListBox.Items.Count+1).ToString()+". "+ motion.ToString());
+                EquationListBox.Items.Add((EquationListBox.Items.Count + 1).ToString() + ". " + motion.ToString());
 
                 DrawMotion(motion);
 
@@ -140,10 +198,10 @@ namespace Tworzenie_wykresow
             chartMotions.Series.Add(index);
             chartMotions.Series[index].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             for (int i = 0; i < 100; i++)
-			{
+            {
                 chartMotions.Series[index].Points.AddXY(i, motion.GetPosition(i));
 
-			}
+            }
         }
 
         private void ListBoxRefresh()
@@ -189,6 +247,16 @@ namespace Tworzenie_wykresow
         private void DeleteMotionFromChart(int index)
         {
             chartMotions.Series.RemoveAt(index);
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
