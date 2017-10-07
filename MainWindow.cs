@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tworzenie_wykresow.Model;
+using Tworzenie_wykresow.Properties;
 
 namespace Tworzenie_wykresow
 {
@@ -36,6 +37,14 @@ namespace Tworzenie_wykresow
             tBox_a.Text = "0";
             tBox_V_0.Text = "0";
             tBoxX_0.Text = "0";
+
+            SetConstantStrings();
+        }
+
+        private void SetConstantStrings()
+        {
+            lblMotionType.Text = Resources.MotionType;
+            btn_SetPosition.Text = Resources.Confirm;
         }
 
         private void UpdateViewAfterInitialization()
@@ -152,21 +161,6 @@ namespace Tworzenie_wykresow
             double position, aceeleration, velocity, x_P, x_K, t_P, t_K;
 
 
-            if (!Double.TryParse(tBox_a.Text, out aceeleration))
-            {
-                MessageBox.Show("Uzupelnij poprawnie pole 'a ='");
-                return;
-            }
-            if (!Double.TryParse(tBox_V_0.Text, out velocity))
-            {
-                MessageBox.Show("Uzupelnij poprawnie pole 'V_0 ='");
-                return;
-            }
-            if (!Double.TryParse(tBoxX_0.Text, out position))
-            {
-                MessageBox.Show("Uzupelnij poprawnie pole 'x_0 ='");
-                return;
-            }
 
 
 
@@ -174,21 +168,81 @@ namespace Tworzenie_wykresow
 
             if (GetSelectedMotionType() == MotionType.UniformLinearMotion)
             {
-                UniformLinearMotion motion = new UniformLinearMotion(Convert.ToDouble(tBoxX_0.Text), Convert.ToDouble(tBox_V_0.Text));
 
-                EquationListBox.Items.Add((EquationListBox.Items.Count + 1).ToString() + ". " + motion.ToString());
 
-                DrawMotion(motion);
+                if (VerifyVelocityAndPositionValues(out velocity, out position))
+                {
+
+                    UniformLinearMotion motion = new UniformLinearMotion(Convert.ToDouble(tBoxX_0.Text), Convert.ToDouble(tBox_V_0.Text));
+
+                    EquationListBox.Items.Add((EquationListBox.Items.Count + 1).ToString() + ". " + motion.ToString());
+
+                    DrawMotion(motion);
+
+
+                }
+
+
+
+
 
             }
             else if (GetSelectedMotionType() == MotionType.UniformAcceleratedLinearMotion)
             {
-                UniformlyAcceleratedLinearMotion motion = new UniformlyAcceleratedLinearMotion(Convert.ToDouble(tBoxX_0.Text), Convert.ToDouble(tBox_V_0.Text), Convert.ToDouble(tBox_a.Text));
-                EquationListBox.Items.Add((EquationListBox.Items.Count + 1).ToString() + ". " + motion.ToString());
-                DrawMotion(motion);
+                if (VerifyAccelerationVelocityAndPositionValues(out aceeleration, out velocity, out position))
+                {
+                    UniformlyAcceleratedLinearMotion motion = new UniformlyAcceleratedLinearMotion(Convert.ToDouble(tBoxX_0.Text), Convert.ToDouble(tBox_V_0.Text), Convert.ToDouble(tBox_a.Text));
+                    EquationListBox.Items.Add((EquationListBox.Items.Count + 1).ToString() + ". " + motion.ToString());
+                    DrawMotion(motion);
+
+                }
+
+
             }
 
             ListBoxRefresh();
+        }
+
+        private bool VerifyAccelerationVelocityAndPositionValues(out double aceeleration, out double velocity, out double position)
+        {
+            aceeleration = 0;
+            if (VerifyVelocityAndPositionValues(out velocity, out position))
+                if (!Double.TryParse(tBox_a.Text, out aceeleration))
+                {
+                    MessageBox.Show("Uzupelnij poprawnie pole 'a ='");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        private bool VerifyVelocityAndPositionValues(out double velocity, out double position)
+        {
+            velocity = 0;
+            position = 0;
+            if (!Double.TryParse(tBoxX_0.Text, out position))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 'x_0 ='");
+                return false;
+            }
+            if (!Double.TryParse(tBox_V_0.Text, out velocity))
+            {
+                MessageBox.Show("Uzupelnij poprawnie pole 'V_0 ='");
+                return false;
+            }
+            return true;
+        }
+
+        private void VerifyVelocityAndPositionValues()
+        {
+
         }
 
 
@@ -197,11 +251,14 @@ namespace Tworzenie_wykresow
             string index = EquationListBox.Items.Count.ToString();
             chartMotions.Series.Add(index);
             chartMotions.Series[index].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            for (int i = 1; i < 100; i++)
+            chartMotions.Series[index].BorderWidth = 4;
+            for (int i = 0; i < 100; i++)
             {
                 chartMotions.Series[index].Points.AddXY(i, motion.GetPosition(i));
 
             }
+
+          
         }
 
         private void ListBoxRefresh()
@@ -297,7 +354,7 @@ namespace Tworzenie_wykresow
 
 
             chartMotions.ChartAreas[0].AxisY.ScaleView.Zoom(initial_position, final_position);
-            chartMotions.ChartAreas[0].AxisX.ScaleView.Zoom(initial_time, (final_time-1));
+            chartMotions.ChartAreas[0].AxisX.ScaleView.Zoom(initial_time, (final_time - 1));
 
 
         }

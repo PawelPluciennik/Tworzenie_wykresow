@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.lblMotionType = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,15 +69,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartMotions)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblMotionType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(32, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Typ ruchu";
+            this.lblMotionType.AutoSize = true;
+            this.lblMotionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMotionType.Location = new System.Drawing.Point(32, 12);
+            this.lblMotionType.Name = "lblMotionType";
+            this.lblMotionType.Size = new System.Drawing.Size(119, 29);
+            this.lblMotionType.TabIndex = 0;
+            this.lblMotionType.Text = "Typ ruchu";
             // 
             // label2
             // 
@@ -157,16 +157,16 @@
             // 
             // chartMotions
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartMotions.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chartMotions.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chartMotions.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartMotions.Legends.Add(legend1);
             this.chartMotions.Location = new System.Drawing.Point(222, 54);
             this.chartMotions.Name = "chartMotions";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chartMotions.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartMotions.Series.Add(series1);
             this.chartMotions.Size = new System.Drawing.Size(692, 495);
             this.chartMotions.TabIndex = 9;
             this.chartMotions.Text = "chart1";
@@ -307,7 +307,7 @@
             this.btn_SetPosition.Name = "btn_SetPosition";
             this.btn_SetPosition.Size = new System.Drawing.Size(83, 35);
             this.btn_SetPosition.TabIndex = 18;
-            this.btn_SetPosition.Text = "Zatwirdź";
+            this.btn_SetPosition.Text = "Zatwierdź";
             this.btn_SetPosition.UseVisualStyleBackColor = true;
             this.btn_SetPosition.Click += new System.EventHandler(this.btn_SetPosition_Click);
             // 
@@ -446,7 +446,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMotionType);
             this.Name = "MainWindow";
             this.Text = "Tworzenie Wykresów";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -458,7 +458,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMotionType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
